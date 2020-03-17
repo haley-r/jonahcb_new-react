@@ -10,6 +10,8 @@
 body {
     background: #efefef;
     color: #2d2d2c;
+    font-size: 1em;
+    line-height: 1.4;
     font-family: 'Abel', sans-serif;
     text-align: center;
 }
@@ -20,6 +22,15 @@ h2, h3, #footer-nav {
     color: #aaaaaa;
     padding-bottom: 1rem;
     margin: 0;
+}
+h3 {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: .25em;
+    background: #efefef;
+    z-index: 2;
+    cursor: pointer;
 }
 p {
     text-transform: lowercase;
@@ -50,8 +61,6 @@ a:hover {
       width: 96vw;
       height: 70vh;
   }
-
-
 /*splash page styles*/
 .hide {
     display: none;
@@ -130,9 +139,6 @@ a:hover {
         display: block;
         padding: 0 .5em;
     }
-
- 
-
 /*nav styles, main and footer!*/
 ul {
     list-style: none;
@@ -143,25 +149,13 @@ nav {
     width:100%;
     z-index: 1;
 }
-h3 {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: .25em;
-    background: #efefef;
-    z-index: 2;
-    cursor: pointer;
-}
 .main-nav {
     position: relative;
 }
     nav ul.toplevel {
-        display: none;
+        overflow: scroll;
         background: hsla(0, 0%, 94%, .85);
         position: relative;
-        /*height: 100vh;
-        bottom: 0;
-        overflow: auto;*/
         padding: 3em 0;
         margin: 0 0 0 0;
         z-index: -1;
@@ -174,6 +168,7 @@ h3 {
         text-transform: uppercase;
         padding: .5em;
     }
+
     .main-nav ul li ul {
         padding: .5em 1em 2em 1em;
     }
@@ -206,6 +201,7 @@ h3 {
         }
     #footer-nav ul li {
         display: inline-block;
+        width: 22%;
         padding: 0 5vw;
         }
 
@@ -271,7 +267,32 @@ h3 {
         }
         .category {
             text-decoration: none;
+            position: absolute;
         }
+            #short-films-link {
+                z-index: 2;
+                left: 0px;
+            }
+            #music-videos-link {
+                z-index: 2;
+                left: 88px;
+            }
+            #promotional-link {
+                z-index: 2;
+                left: 190px;
+            }
+            #nonfiction-link{
+                z-index: 2;
+                left: 285px;
+            }
+            #other-media-link {
+                z-index: 2;
+                left: 370px;
+            }
+            #about-link {
+                z-index: 2;
+                left: 462px;
+            }
     nav ul{
         padding: 0;
         margin: 0;

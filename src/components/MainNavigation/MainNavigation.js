@@ -5,7 +5,7 @@ class MainNavigation extends Component {
         return (
             <nav className="main-nav">
                 <ul className="toplevel" id="top-item">
-                    <li><a href="short-films/index.html" className="category">Short Films</a>
+                    <li><a href="short-films/index.html" className="category" id="short-films-link">Short&nbsp;Films</a>
                         <ul className="shortfilms dropdown">
                             <li><a href="#">The Stream</a></li>
                             <li><a href="#">False God <span className="student">(Student&nbsp;Project)</span></a></li>
@@ -13,7 +13,7 @@ class MainNavigation extends Component {
                         </ul>
                     </li>
 
-                    <li><a href="#" className="category">Music Videos</a>
+                    <li><a href="#" className="category" id="music-videos-link">Music&nbsp;Videos</a>
                         <ul className="musicvids dropdown">
                             <li><a href="#">Sass - Spoiled by Rotten</a></li>
                             <li><a href="#">Sigma Hertz - Lost (Found) <span>ft. Sophie Glassford</span></a></li>
@@ -22,7 +22,7 @@ class MainNavigation extends Component {
                         </ul>
                     </li>
 
-                    <li><a href="#" className="category">Promotional</a>
+                    <li><a href="#" className="category" id="promotional-link">Promotional</a>
                         <ul className="shortfilms dropdown">
                             <li><a href="#">Discourse Coffee: A Liquid Workshop</a></li>
                             <li><a href="#">Let It Ride Cold-Brewed Coffee</a></li>
@@ -31,13 +31,13 @@ class MainNavigation extends Component {
                         </ul>
                     </li>
 
-                    <li><a href="#" className="category">Nonfiction</a>
+                    <li><a href="#" className="category" id="nonfiction-link">Nonfiction</a>
                         <ul className="shortfilms dropdown">
                             <li><a href="#">Textura<span className="student">(Student&nbsp;Project)</span></a></li>
                         </ul>
                     </li>
 
-                    <li><a href="#" className="category">Other Media</a>
+                    <li><a href="#" className="category" id="other-media-link">Other&nbsp;Media</a>
                         <ul className="shortfilms dropdown">
                             <li><a href="#">Promotional Photography</a></li>
                             <li><a href="#">Film Stills</a></li>
@@ -46,7 +46,7 @@ class MainNavigation extends Component {
                         </ul>
                     </li>
 
-                    <li><a href="#" className="lastitem">About</a></li>
+                    <li><a href="#" className="category" id="about-link">About</a></li>
                 </ul>
             </nav>
         )
