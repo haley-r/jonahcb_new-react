@@ -1,15 +1,47 @@
 import React, { Component } from 'react';
 
 class MainNavigation extends Component {
-    componentDidMount=()=>{
-        console.log('hi it mounted');
-        console.log('the redux state is:', this.props.reduxState);
+
+    state = {
+        showMenu: true
     }
+
+    componentDidMount=()=>{
+        window.addEventListener("resize", this.updateDimensions);
+        this.updateDimensions();
+    }
+
+    toggleMenu=()=>{
+        if (this.state.showMenu===false){
+            this.setState({
+                showMenu: true
+            })}//end if
+        else {
+            this.setState({
+                showMenu: false
+            })}//end else
+    }
+
+    updateDimensions =()=> {
+        if (window.innerWidth<540){
+            this.setState({
+                windowWidth: window.innerWidth,
+                showMenu: false,
+            })}//end if
+        else if(window.innerWidth>=540){
+            this.setState({
+                windowWidth: window.innerWidth,
+                showMenu: true,
+            })}//end else if
+        }
 
     render() {
         return (
+            <>
+            {this.state.showMenu===true
+            ?
             <nav className="main-nav">
-                <h3 className="menu-toggle">content(s)</h3>
+                <h3 className="menu-toggle" onClick={this.toggleMenu}>close menu</h3>
                 <ul className="toplevel">
                     <li><a href="#/short-films" className="category" id="short-films-link">Short&nbsp;Films</a>
                         <ul className="shortfilms dropdown">
@@ -52,9 +84,13 @@ class MainNavigation extends Component {
                         </ul>
                     </li>
 
-                    <li><a href="/" className="category" id="about-link">About</a></li>
+                    <li><a href="/#" className="category" id="about-link">About</a></li>
                 </ul>
             </nav>
+            :    
+                <h3 className="menu-toggle" onClick={this.toggleMenu}>content(s)</h3>
+        }
+            </>
         )
     }
 }

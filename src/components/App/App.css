@@ -23,7 +23,8 @@ h2, h3, #footer-nav {
     padding-bottom: 1rem;
     margin: 0;
 }
-h3 {
+
+.menu-toggle{
     position: fixed;
     top: 0;
     width: 100%;
@@ -224,7 +225,7 @@ nav {
     nav { 
         font-style: italic;
     }
-    h3{
+    .menu-toggle{
         display: none;
     }
     .main-nav {
