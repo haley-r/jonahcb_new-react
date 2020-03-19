@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Home extends Component {
+
     render() {
         return (
             <div id="main-content">
+                {
+                    this.props.showContent &&
+                    <>
                 <section id="about" className="fillpage">
                     <div>
                         <h2>Jonah Castañeda Barry</h2>
@@ -19,8 +24,12 @@ class Home extends Component {
                         <p>Reel compiled in July 2019.</p>
                     </div>
                 </section>
+                </>
+                }
             </div>
         )
     }
 }
-export default (Home);
+
+const putReduxStateOnProps = (reduxState) => ({ showContent: reduxState.showContent })
+export default connect(putReduxStateOnProps)(Home);

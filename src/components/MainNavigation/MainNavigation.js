@@ -1,44 +1,33 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class MainNavigation extends Component {
 
-    state = {
-        showMenu: true
-    }
-
     componentDidMount=()=>{
-        window.addEventListener("resize", this.updateDimensions);
-        this.updateDimensions();
+        window.addEventListener("resize", this.updateMenuDisplay);
+        this.updateMenuDisplay();
     }
 
     toggleMenu=()=>{
-        if (this.state.showMenu===false){
-            this.setState({
-                showMenu: true
-            })}//end if
+        if (this.props.showMenu===false){
+            this.props.dispatch({ type: 'SET_MENU', payload: true});
+            this.props.dispatch({ type: 'SET_CONTENT', payload: false });
+        }//end if
         else {
-            this.setState({
-                showMenu: false
-            })}//end else
+            this.props.dispatch({type: 'SET_MENU', payload: false,});
+            this.props.dispatch({ type: 'SET_CONTENT', payload: true, });
+        }//end else
     }
 
-    updateDimensions =()=> {
-        if (window.innerWidth<540){
-            this.setState({
-                windowWidth: window.innerWidth,
-                showMenu: false,
-            })}//end if
-        else if(window.innerWidth>=540){
-            this.setState({
-                windowWidth: window.innerWidth,
-                showMenu: true,
-            })}//end else if
+    updateMenuDisplay =()=> {
+        if (window.innerWidth < 540){this.props.dispatch({ type: 'SET_MENU', payload: false, })}
+        else if (window.innerWidth >= 540) { this.props.dispatch({ type: 'SET_MENU', payload: true })}
         }
 
     render() {
         return (
             <>
-            {this.state.showMenu===true
+            {this.props.showMenu===true
             ?
             <nav className="main-nav">
                 <h3 className="menu-toggle" onClick={this.toggleMenu}>close menu</h3>
@@ -95,4 +84,5 @@ class MainNavigation extends Component {
     }
 }
 
-export default (MainNavigation);
+const putReduxStateOnProps = (reduxState) => ({showMenu:reduxState.showMenu})
+export default connect(putReduxStateOnProps)(MainNavigation);

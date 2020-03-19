@@ -7,14 +7,26 @@ import { Provider } from 'react-redux';
 
 
 //each component sends value to individual reducer with unique action type
-const navigationReducer = (state = true) => {
+const showMenu = (state = true, action) => {
+    if (action.type==='SET_MENU'){
+        return action.payload;
+    }
     return state;
 }
+
+const showContent = (state = true, action) => {
+    if (action.type === 'SET_CONTENT') {
+        return action.payload;
+    }
+    return state;
+}
+
 //store gives access to state of all reducers
 //logger gives nice console logs, doesn't change functionality of app
 const storeInstance = createStore(
     combineReducers({
-        navigationReducer
+        showMenu,
+        showContent
     })
 )
 
