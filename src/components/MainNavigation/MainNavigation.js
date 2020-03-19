@@ -21,7 +21,8 @@ class MainNavigation extends Component {
 
     updateMenuDisplay =()=> {
         if (window.innerWidth < 540){this.props.dispatch({ type: 'SET_MENU', payload: false, })}
-        else if (window.innerWidth >= 540) { this.props.dispatch({ type: 'SET_MENU', payload: true })}
+        else if (window.innerWidth >= 540) { this.props.dispatch({ type: 'SET_MENU', payload: true });
+            this.props.dispatch({ type: 'SET_CONTENT', payload: true, });}
         }
 
     render() {
