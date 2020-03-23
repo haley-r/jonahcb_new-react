@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { HashLink as Link } from 'react-router-hash-link';
+import { HashRouter as Router } from 'react-router-dom';
 
 class MainNavigation extends Component {
 
@@ -19,6 +21,13 @@ class MainNavigation extends Component {
         }//end else
     }
 
+    revealContent=()=>{
+        if (this.props.showContent === false) {
+            this.props.dispatch({ type: 'SET_MENU', payload: false, });
+            this.props.dispatch({ type: 'SET_CONTENT', payload: true, });
+        }
+    }
+
     updateMenuDisplay =()=> {
         if (window.innerWidth < 540){this.props.dispatch({ type: 'SET_MENU', payload: false, })}
         else if (window.innerWidth >= 540) { this.props.dispatch({ type: 'SET_MENU', payload: true });
@@ -33,11 +42,12 @@ class MainNavigation extends Component {
             <nav className="main-nav">
                 <h3 className="menu-toggle" onClick={this.toggleMenu}>close menu</h3>
                 <ul className="toplevel">
-                    <li><a href="#/short-films" onClick={this.toggleMenu} className="category" id="short-films-link">Short&nbsp;Films</a>
+                  <Router>
+                    <li><a href="#/short-films" onClick={this.revealContent} className="category" id="short-films-link">Short&nbsp;Films</a>
                         <ul className="shortfilms dropdown">
-                            <li><a href="#/short-films" onClick={this.toggleMenu}>The Stream</a></li>
-                            <li><a href="#/short-films" onClick={this.toggleMenu}>False God <span className="student">(Student&nbsp;Project)</span></a></li>
-                            <li><a href="#/short-films" onClick={this.toggleMenu}>John: The Day In The Life <span className="student">(Student&nbsp;Project)</span></a></li>
+                            <li><Link to="/short-films#the-stream" onClick={this.revealContent}>The Stream</Link></li>
+                            <li><Link to="/short-films#false-god" onClick={this.revealContent}>False God <span className="student">(Student&nbsp;Project)</span></Link></li>
+                            <li><Link to="/short-films#john-the-day" onClick={this.revealContent}>John: The Day In The Life <span className="student">(Student&nbsp;Project)</span></Link></li>
                         </ul>
                     </li>
 
@@ -75,6 +85,7 @@ class MainNavigation extends Component {
                     </li>
 
                     <li><a href="/#" className="category" id="about-link">About</a></li>
+                    </Router>       
                 </ul>
             </nav>
             :    
@@ -85,5 +96,5 @@ class MainNavigation extends Component {
     }
 }
 
-const putReduxStateOnProps = (reduxState) => ({showMenu:reduxState.showMenu})
+const putReduxStateOnProps = (reduxState) => ({showMenu:reduxState.showMenu, showContent: reduxState.showContent})
 export default connect(putReduxStateOnProps)(MainNavigation);
