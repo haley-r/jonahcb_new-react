@@ -22,7 +22,7 @@ class MainNavigation extends Component {
     updateMenuDisplay =()=> {
         if (window.innerWidth < 540){this.props.dispatch({ type: 'SET_MENU', payload: false, })}
         else if (window.innerWidth >= 540) { this.props.dispatch({ type: 'SET_MENU', payload: true });
-            this.props.dispatch({ type: 'SET_CONTENT', payload: true, });}
+            this.props.dispatch({ type: 'SET_CONTENT', payload: true });}
         }
 
     render() {
@@ -33,11 +33,11 @@ class MainNavigation extends Component {
             <nav className="main-nav">
                 <h3 className="menu-toggle" onClick={this.toggleMenu}>close menu</h3>
                 <ul className="toplevel">
-                    <li><a href="#/short-films" className="category" id="short-films-link">Short&nbsp;Films</a>
+                    <li><a href="#/short-films" onClick={this.toggleMenu} className="category" id="short-films-link">Short&nbsp;Films</a>
                         <ul className="shortfilms dropdown">
-                            <li><a href="#/short-films">The Stream</a></li>
-                            <li><a href="#/short-films">False God <span className="student">(Student&nbsp;Project)</span></a></li>
-                            <li><a href="#/short-films">John: The Day In The Life <span className="student">(Student&nbsp;Project)</span></a></li>
+                            <li><a href="#/short-films" onClick={this.toggleMenu}>The Stream</a></li>
+                            <li><a href="#/short-films" onClick={this.toggleMenu}>False God <span className="student">(Student&nbsp;Project)</span></a></li>
+                            <li><a href="#/short-films" onClick={this.toggleMenu}>John: The Day In The Life <span className="student">(Student&nbsp;Project)</span></a></li>
                         </ul>
                     </li>
 

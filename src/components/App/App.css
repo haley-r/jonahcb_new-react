@@ -63,6 +63,7 @@ a:hover {
       height: 70vh;
   }
 /*splash page styles*/
+
 .hide {
     display: none;
     }
@@ -93,7 +94,7 @@ a:hover {
         transform: translateY(-50%);        
     }
     #gif-reel {
-        /* background: #efefef url("../img/jcb-reel.gif") no-repeat; */
+        background: #efefef url("../../images/jcb-reel.gif") no-repeat;
         background-size: cover;
         position: absolute;
         left: 50%;
@@ -203,7 +204,7 @@ nav {
     #footer-nav ul li {
         display: inline-block;
         width: 22%;
-        padding: 0 5vw;
+        padding: 0 auto;
         }
 
 
