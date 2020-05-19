@@ -42,6 +42,7 @@ a {
 }
 a:hover {
         font-weight: bold;
+        transform: translateX(-.1em);
 }
 /* main content block styles */
   .fillpage {
